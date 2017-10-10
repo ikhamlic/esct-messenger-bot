@@ -143,34 +143,5 @@ public class TranslateText {
         //return TranslateOptions.newBuilder().build().getService();
     }
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        System.out.println("*********");
-        System.out.println(detectLanguage("hello"));
-        System.out.println("*********");
-        String[] args2 = {"detect", "salut"};
-        args = args2;
-        String command = args[0];
-        String text;
 
-        if (command.equals("detect")) {
-            text = args[1];
-            TranslateText.detectLanguage(text, System.out);
-        } else if (command.equals("translate")) {
-            text = args[1];
-            try {
-                String sourceLang = args[2];
-                String targetLang = args[3];
-                TranslateText.translateTextWithOptions(text, sourceLang, targetLang, System.out);
-            } catch (ArrayIndexOutOfBoundsException ex) {
-                TranslateText.translateText(text, System.out);
-            }
-        } else if (command.equals("langsupport")) {
-            try {
-                String target = args[1];
-                TranslateText.displaySupportedLanguages(System.out, Optional.of(target));
-            } catch (ArrayIndexOutOfBoundsException ex) {
-                TranslateText.displaySupportedLanguages(System.out, Optional.empty());
-            }
-        }
-    }
 }
