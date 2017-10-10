@@ -208,7 +208,7 @@ public class MessengerPlatformCallbackHandler {
                     */
 
                     default:
-                        sendTextMessage(senderId, "You're speaking to me in:  " +  detectLanguage("salut"));
+                        sendTextMessage(senderId, "You're speaking to me in:  " +  detectLanguage(messageText));
                 }
             } catch (MessengerApiException | MessengerIOException | UnsupportedEncodingException e) {
                 handleSendException(e);

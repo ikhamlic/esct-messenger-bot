@@ -38,9 +38,6 @@ public class TranslateText {
             }
         }
         out.printf("%s", detectionMaxConfidence.getLanguage());
-        out.println(detectionMaxConfidence.getConfidence());
-        out.println(detectionMaxConfidence.getLanguage());
-        out.println(detections.get(0).getLanguage());
 
 
     }
