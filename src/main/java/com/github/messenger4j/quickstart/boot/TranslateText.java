@@ -139,8 +139,8 @@ public class TranslateText {
      * @return Google Translate Service
      */
     public static Translate createTranslateService() {
-        //return TranslateOptions.newBuilder().setApiKey("AIzaSyBlCX4hc8-s7F0d29pNRf_KJ3-0AVpRGis").build().getService();
-        return TranslateOptions.newBuilder().build().getService();
+        return TranslateOptions.newBuilder().setApiKey("AIzaSyBlCX4hc8-s7F0d29pNRf_KJ3-0AVpRGis").build().getService();
+        //return TranslateOptions.newBuilder().build().getService();
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
