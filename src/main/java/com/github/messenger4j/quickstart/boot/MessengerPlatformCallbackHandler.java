@@ -53,7 +53,7 @@ import org.springframework.web.bind.annotation.RestController;
  * The callback handler is responsible for the webhook verification and processing of the inbound messages and events.
  * It showcases the features of the Messenger Platform.
  *
- * @author Max Grabenhorst
+ * @author Ilyes Khamlichi
  */
 @RestController
 @RequestMapping("/callback")
@@ -204,7 +204,7 @@ public class MessengerPlatformCallbackHandler {
                     */
 
                     default:
-                        sendTextMessage(senderId, messageText);
+                        sendTextMessage(senderId, "Salut mec");
                 }
             } catch (MessengerApiException | MessengerIOException e) {
                 handleSendException(e);
