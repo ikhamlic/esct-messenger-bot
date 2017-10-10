@@ -4,6 +4,7 @@ import static com.github.messenger4j.MessengerPlatform.CHALLENGE_REQUEST_PARAM_N
 import static com.github.messenger4j.MessengerPlatform.MODE_REQUEST_PARAM_NAME;
 import static com.github.messenger4j.MessengerPlatform.SIGNATURE_HEADER_NAME;
 import static com.github.messenger4j.MessengerPlatform.VERIFY_TOKEN_REQUEST_PARAM_NAME;
+import static com.github.messenger4j.quickstart.boot.TranslateText.*;
 
 import com.github.messenger4j.MessengerPlatform;
 import com.github.messenger4j.exceptions.MessengerApiException;
@@ -14,6 +15,7 @@ import com.github.messenger4j.receive.events.AccountLinkingEvent.AccountLinkingS
 import com.github.messenger4j.receive.events.AttachmentMessageEvent.Attachment;
 import com.github.messenger4j.receive.events.AttachmentMessageEvent.AttachmentType;
 import com.github.messenger4j.receive.events.AttachmentMessageEvent.Payload;
+import com.github.messenger4j.receive.events.TextMessageEvent;
 import com.github.messenger4j.receive.handlers.AccountLinkingEventHandler;
 import com.github.messenger4j.receive.handlers.AttachmentMessageEventHandler;
 import com.github.messenger4j.receive.handlers.EchoMessageEventHandler;
@@ -33,6 +35,8 @@ import com.github.messenger4j.send.buttons.Button;
 import com.github.messenger4j.send.templates.ButtonTemplate;
 import com.github.messenger4j.send.templates.GenericTemplate;
 import com.github.messenger4j.send.templates.ReceiptTemplate;
+
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 import org.slf4j.Logger;
@@ -136,7 +140,7 @@ public class MessengerPlatformCallbackHandler {
     }
 
     private TextMessageEventHandler newTextMessageEventHandler() {
-        return event -> {
+        return (TextMessageEvent event) -> {
             logger.debug("Received TextMessageEvent: {}", event);
 
             final String messageId = event.getMid();
@@ -204,9 +208,9 @@ public class MessengerPlatformCallbackHandler {
                     */
 
                     default:
-                        sendTextMessage(senderId, "Salut mec");
+                        sendTextMessage(senderId, "You're speaking to me in:  " +  detectLanguage("salut"));
                 }
-            } catch (MessengerApiException | MessengerIOException e) {
+            } catch (MessengerApiException | MessengerIOException | UnsupportedEncodingException e) {
                 handleSendException(e);
             }
         };
