@@ -502,12 +502,13 @@ public class MessengerPlatformCallbackHandler {
         }
     }
 
-    private String sendTranslationOrSpellChecked(String recipientId, String text) throws UnsupportedEncodingException {
+    private void sendTranslationOrSpellChecked(String recipientId, String text) throws UnsupportedEncodingException {
         if (detectLanguage(text).equals("en")) {
-            return "Translation in english: " + translateText(text);
+            sendTextMessage(recipientId,"Translation in english: " + translateText(text));
         }
 
-        return "I need to check spelling";
+        else
+            sendTextMessage(recipientId, "I need to check spelling");
     }
 
     private void handleSendException(Exception e) {
