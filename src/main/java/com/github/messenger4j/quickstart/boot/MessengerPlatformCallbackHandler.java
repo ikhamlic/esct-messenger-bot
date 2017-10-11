@@ -5,6 +5,8 @@ import static com.github.messenger4j.MessengerPlatform.MODE_REQUEST_PARAM_NAME;
 import static com.github.messenger4j.MessengerPlatform.SIGNATURE_HEADER_NAME;
 import static com.github.messenger4j.MessengerPlatform.VERIFY_TOKEN_REQUEST_PARAM_NAME;
 import static com.github.messenger4j.quickstart.boot.TranslateText.*;
+import static com.github.messenger4j.quickstart.boot.ImageParser.*;
+
 
 import com.github.messenger4j.MessengerPlatform;
 import com.github.messenger4j.exceptions.MessengerApiException;
@@ -36,9 +38,12 @@ import com.github.messenger4j.send.templates.ButtonTemplate;
 import com.github.messenger4j.send.templates.GenericTemplate;
 import com.github.messenger4j.send.templates.ReceiptTemplate;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
+
+import net.sourceforge.tess4j.TesseractException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -311,7 +316,11 @@ public class MessengerPlatformCallbackHandler {
                 if (payload.isLocationPayload()) {
                     payloadAsString = payload.asLocationPayload().getCoordinates().toString();
                 }
-                sendTextMessage(senderId, "Message with attachment received: " + payloadAsString);
+                try {
+                    sendTextMessage(senderId, "Message with attachment received: " + imageUrlToString(payloadAsString, "temp.png"));
+                } catch (TesseractException | IOException e) {
+                    handleSendException(e);
+                }
                 logger.info("Attachment of type '{}' with payload '{}'", attachmentType, payloadAsString);
             });
 
