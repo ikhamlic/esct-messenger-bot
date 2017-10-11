@@ -208,7 +208,7 @@ public class MessengerPlatformCallbackHandler {
                     */
 
                     default:
-                        sendTextMessage(senderId, "You're speaking to me in:  " +  detectLanguage(messageText));
+                        sendTranslationOrSpellChecked(senderId, messageText);
                 }
             } catch (MessengerApiException | MessengerIOException | UnsupportedEncodingException e) {
                 handleSendException(e);
@@ -278,6 +278,8 @@ public class MessengerPlatformCallbackHandler {
 
         this.sendClient.sendTemplate(recipientId, genericTemplate);
     }
+
+
 
     private void sendReceiptMessage(String recipientId) throws MessengerApiException, MessengerIOException {
         final String uniqueReceiptId = "order-" + Math.floor(Math.random() * 1000);
@@ -498,6 +500,14 @@ public class MessengerPlatformCallbackHandler {
         } catch (MessengerApiException | MessengerIOException e) {
             handleSendException(e);
         }
+    }
+
+    private String sendTranslationOrSpellChecked(String recipientId, String text) throws UnsupportedEncodingException {
+        if (detectLanguage(text).equals("en")) {
+            return "Translation in english: " + translateText(text);
+        }
+
+        return "I need to check spelling";
     }
 
     private void handleSendException(Exception e) {
