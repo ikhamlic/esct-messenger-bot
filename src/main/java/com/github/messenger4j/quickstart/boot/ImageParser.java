@@ -27,7 +27,7 @@ public class ImageParser {
 
     public static String fileToString(File imageFile) throws TesseractException {
         ITesseract instance = new Tesseract();
-        instance.setDatapath("/");
+        instance.setDatapath("");
         instance.setLanguage("eng");
 
 
