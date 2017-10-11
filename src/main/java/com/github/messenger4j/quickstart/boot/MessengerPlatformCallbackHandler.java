@@ -152,65 +152,10 @@ public class MessengerPlatformCallbackHandler {
                     messageId, messageText, senderId, timestamp);
 
             try {
-                switch (messageText.toLowerCase()) {
-                    case "image":
-                        sendImageMessage(senderId);
-                        break;
 
-                    case "gif":
-                        sendGifMessage(senderId);
-                        break;
-
-                    case "audio":
-                        sendAudioMessage(senderId);
-                        break;
-
-                    case "video":
-                        sendVideoMessage(senderId);
-                        break;
-
-                    case "file":
-                        sendFileMessage(senderId);
-                        break;
-
-                    case "button":
-                        sendButtonMessage(senderId);
-                        break;
-
-                    case "generic":
-                        sendGenericMessage(senderId);
-                        break;
-
-                    case "receipt":
-                        sendReceiptMessage(senderId);
-                        break;
-
-                    case "quick reply":
-                        sendQuickReply(senderId);
-                        break;
-
-                    case "read receipt":
-                        sendReadReceipt(senderId);
-                        break;
-
-                    case "typing on":
-                        sendTypingOn(senderId);
-                        break;
-
-                    case "typing off":
-                        sendTypingOff(senderId);
-                        break;
-
-                    /*
-                    case "account linking":
-                        sendAccountLinking(senderId);
-                        break;
-                    */
-
-                    default:
                         sendTranslationOrSpellChecked(senderId, messageText);
-                }
-            } catch (MessengerApiException | MessengerIOException | UnsupportedEncodingException e) {
+
+            } catch (UnsupportedEncodingException e) {
                 handleSendException(e);
             }
         };
@@ -366,11 +311,11 @@ public class MessengerPlatformCallbackHandler {
                 if (payload.isLocationPayload()) {
                     payloadAsString = payload.asLocationPayload().getCoordinates().toString();
                 }
-
+                sendTextMessage(senderId, "Message with attachment received: " + payloadAsString);
                 logger.info("Attachment of type '{}' with payload '{}'", attachmentType, payloadAsString);
             });
 
-            sendTextMessage(senderId, "Message with attachment received");
+
         };
     }
 
