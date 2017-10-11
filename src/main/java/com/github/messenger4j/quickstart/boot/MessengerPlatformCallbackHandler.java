@@ -316,11 +316,11 @@ public class MessengerPlatformCallbackHandler {
                 if (payload.isLocationPayload()) {
                     payloadAsString = payload.asLocationPayload().getCoordinates().toString();
                 }
-                try {
-                    sendTextMessage(senderId, "Message with attachment received: " + imageUrlToString(payloadAsString, "temp.png"));
-                } catch (TesseractException | IOException e) {
-                    handleSendException(e);
-                }
+               // try {
+                    sendTextMessage(senderId, "Message with attachment received: "); //+ imageUrlToString(payloadAsString, "temp.png"));
+                //} catch (TesseractException | IOException e) {
+                //    handleSendException(e);
+                //}
                 logger.info("Attachment of type '{}' with payload '{}'", attachmentType, payloadAsString);
             });
 
