@@ -504,11 +504,11 @@ public class MessengerPlatformCallbackHandler {
 
     private void sendTranslationOrSpellChecked(String recipientId, String text) throws UnsupportedEncodingException {
         if (detectLanguage(text).equals("en")) {
-            sendTextMessage(recipientId,"Translation in english: " + translateText(text));
+            sendTextMessage(recipientId, "Translation in english: " + translateText(text) + "\n detected language" + detectLanguage(text));
         }
 
         else
-            sendTextMessage(recipientId, "I need to check spelling");
+            sendTextMessage(recipientId, "I need to check spelling" + "\n detected language" + detectLanguage(text));
     }
 
     private void handleSendException(Exception e) {
