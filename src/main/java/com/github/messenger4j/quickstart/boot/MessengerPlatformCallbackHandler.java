@@ -327,7 +327,7 @@ public class MessengerPlatformCallbackHandler {
     }
 
     private void sendTextMessage(String recipientId, String text) {
-        text = text.substring(0, 300);
+        text = text.substring(0, Math.min(text.length(), 300));
         try {
             final Recipient recipient = Recipient.newBuilder().recipientId(recipientId).build();
             final NotificationType notificationType = NotificationType.REGULAR;
