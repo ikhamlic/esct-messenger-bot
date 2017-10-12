@@ -61,6 +61,14 @@
     <version>3.4.1</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/net.sf.jazzy/jazzy-core -->
+<dependency>
+    <groupId>net.sf.jazzy</groupId>
+    <artifactId>jazzy-core</artifactId>
+    <version>0.5.2</version>
+</dependency>
+
+
 
 	</dependencies>
 

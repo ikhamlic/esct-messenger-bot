@@ -8,6 +8,7 @@ import static com.github.messenger4j.quickstart.boot.TranslateText.*;
 import static com.github.messenger4j.quickstart.boot.ImageParser.*;
 
 
+
 import com.github.messenger4j.MessengerPlatform;
 import com.github.messenger4j.exceptions.MessengerApiException;
 import com.github.messenger4j.exceptions.MessengerIOException;
@@ -462,7 +463,7 @@ public class MessengerPlatformCallbackHandler {
         }
 
         else
-            sendTextMessage(recipientId, "I need to check spelling");
+            sendTextMessage(recipientId, "Corrected text: " + new JazzySpellChecker().getCorrectedLine(text));
     }
 
     private void handleSendException(Exception e) {
