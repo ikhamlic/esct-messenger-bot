@@ -5,7 +5,7 @@ User can also send pictures with text and ESCT will recognize the text using Tes
 
 Here is a screenshot of the bot in action:
 
-[![Image of Chatbot](https://i.imgur.com/wSOidp8l.png)]
+![Image of Chatbot](https://i.imgur.com/wSOidp8l.png)
 
 
 The chat bot understands following inputs
