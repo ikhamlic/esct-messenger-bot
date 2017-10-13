@@ -3,7 +3,7 @@
 ESCT is Facebook Chat bot which translates user messages to english (using Google Translate API V2) or correct them (using Jazzy library) if they are in english.
 User can also send pictures with text and ESCT will recognize the text using Tesseract OCR.
 
-Click below to see the video demo of the chat bot in action 
+Here is a screenshot of the bot in action:
 
 [![Image of Chatbot](https://i.imgur.com/wSOidp8l.png)]
 
