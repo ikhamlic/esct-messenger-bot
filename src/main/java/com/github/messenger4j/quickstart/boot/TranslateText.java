@@ -19,7 +19,7 @@ public class TranslateText {
 
 
     /**
-     * Detect the language of input text.
+     * Detects the language of input text.
      *
      * @param sourceText source text to be detected for language
      * @return language detected

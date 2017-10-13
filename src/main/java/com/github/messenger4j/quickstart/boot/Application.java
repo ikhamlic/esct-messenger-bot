@@ -17,7 +17,6 @@ import org.springframework.context.annotation.Bean;
  * In addition a {@code MessengerSendClient} will be exposed as a singleton Spring Bean, so it is injectable.
  * </p>
  *
- * @author Max Grabenhorst
  */
 @SpringBootApplication
 public class Application {

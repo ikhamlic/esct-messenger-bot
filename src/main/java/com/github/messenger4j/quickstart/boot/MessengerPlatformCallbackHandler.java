@@ -166,6 +166,9 @@ public class MessengerPlatformCallbackHandler {
         };
     }
 
+    /**
+     * Sends corrected text if input text is in english, otherwise sends translation in english.
+     */
     private void sendTranslationOrSpellChecked(String recipientId, String text) throws UnsupportedEncodingException {
         if (!detectLanguage(text).equals("en")) {
             sendTextMessage(recipientId, "Translation in english: " + translateText(text));
