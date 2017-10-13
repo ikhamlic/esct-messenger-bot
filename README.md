@@ -7,7 +7,6 @@ Here is a screenshot of the bot in action:
 
 [![Image of Chatbot](https://i.imgur.com/wSOidp8l.png)]
 
-To add the chatbot to your list start on a conversation on [Indic OCR Facebook Page](https://www.facebook.com/indicocr/?fref=ts) 
 
 The chat bot understands following inputs
 
