@@ -1,13 +1,14 @@
 ### English Spell Checker and Translator Bot
 
 ESCT is Facebook Chat bot which translates user messages to english (using Google Translate API V2) or correct them (using Jazzy library) if they are in english.
+
+ESCT uses messenger4j library.
 User can also send pictures with text and ESCT will recognize the text using Tesseract OCR.
 
-Click below to see the video demo of the chat bot in action 
+Here is a screenshot of the bot in action:
 
-[![Image of Chatbot](https://i.imgur.com/wSOidp8l.png)]
+![Image of Chatbot](https://i.imgur.com/wSOidp8l.png)
 
-To add the chatbot to your list start on a conversation on [Indic OCR Facebook Page](https://www.facebook.com/indicocr/?fref=ts) 
 
 The chat bot understands following inputs
 
