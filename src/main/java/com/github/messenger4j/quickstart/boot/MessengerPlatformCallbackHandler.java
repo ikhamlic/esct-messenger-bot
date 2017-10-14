@@ -69,8 +69,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/callback")
 public class MessengerPlatformCallbackHandler {
 
-    private static final String RESOURCE_URL =
-            "https://raw.githubusercontent.com/fbsamples/messenger-platform-samples/master/node/public";
+
 
     private static final Logger logger = LoggerFactory.getLogger(MessengerPlatformCallbackHandler.class);
 
